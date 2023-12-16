@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
 
         <div className="flex justify-start">
           <a
-            href="#"
+            href="https://drive.google.com/file/d/1ejHyTCIqlFCBcEyUXfs-sjFUg5v6ChoV/view"
             className="text-blue-500 hover:text-blue-700 mr-4"
             target="_blank"
             rel="noopener noreferrer"
@@ -32,7 +32,7 @@ const Footer: React.FC = () => {
             Our Paper
           </a>
           <a
-            href="https://github.com/enismaxim1/coptic-machine-translation"
+            href="https://github.com/orgs/Coptic-NMT/repositories"
             className="text-blue-500 hover:text-blue-700 mr-4"
             target="_blank"
             rel="noopener noreferrer"
