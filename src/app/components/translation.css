@@ -1,0 +1,53 @@
+@font-face {
+    font-family: 'Asul';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/asul/v21/VuJ-dNjKxYr42fQPXYz_NIk.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+.bg-egyptian {
+    background-color: #F6F6F6;
+}
+
+.bg-sandstone {
+    background-color: #e0cda7;
+    color: #0a3b4a;
+}
+
+.no-highlights{
+    outline: "none";
+}
+
+.bg-scriptorium-red-left {
+    background-color: #e3d9d879;
+    border-color: #9f4739;
+    border-width: 1.5px;
+}
+
+.bg-scriptorium-red-right {
+    background-color: #dbbbb97e;
+    border-color: #9f4739;
+    border-width: 2px;
+    -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
+}
+
+.text-scriptorium-grey {
+    color: #4A4A4A;
+    font-family: 'Asul', Helvetica, Arial, sans-serif;
+    font-size: 24px;
+}
+.text-scriptorium-red {
+    color: #9f4739;
+    font-family: 'Asul', Helvetica, Arial, sans-serif;
+    font-size: 24px;
+}
+
+.rounded-pyramid {
+    border-radius: 5px;
+    border: 2px solid #a4122f;
+}
+
+.shadow-md {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); /* This adds a medium shadow for depth */
+}
