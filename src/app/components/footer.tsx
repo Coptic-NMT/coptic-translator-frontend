@@ -24,7 +24,8 @@ const Footer: React.FC = () => {
 
         <div className="flex justify-start">
           <a
-            href="https://drive.google.com/file/d/1ejHyTCIqlFCBcEyUXfs-sjFUg5v6ChoV/view"
+          // link to paper located in public folder
+            href="paper.pdf"
             className="text-blue-500 hover:text-blue-700 mr-4"
             target="_blank"
             rel="noopener noreferrer"
