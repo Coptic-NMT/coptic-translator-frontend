@@ -40,7 +40,13 @@
 .text-scriptorium-red {
     color: #9f4739;
     font-family: 'Asul', Helvetica, Arial, sans-serif;
-    font-size: 24px;
+    font-size: 28px;
+}
+
+.text-error {
+    color: #ff2200;
+    font-family: 'Asul', Helvetica, Arial, sans-serif;
+    font-size: 18px;
 }
 
 .rounded-pyramid {

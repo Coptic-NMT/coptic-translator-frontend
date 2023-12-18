@@ -22,7 +22,7 @@ const TranslationComponent: React.FC = () => {
 
   const placeholderText = (isEnglishToCoptic: boolean) => {
     return `Type or paste ${
-      isEnglishToCoptic ? "English" : "Coptic"
+      isEnglishToCoptic ? "English" : "Sahidic Coptic"
     } text here...`;
   };
 
@@ -113,12 +113,12 @@ const TranslationComponent: React.FC = () => {
     <div>
       <div className="w-full flex justify-center text-scriptorium-red mb-10">
         <div className="w-1/2 pr-4">
-          <h2 className="text-2xl mb-4 text-center font-hieroglyph">
+          <h2 className="text-3xl mb-4 text-center">
             {isEnglishToCoptic ? "English" : "Coptic"}
           </h2>
           <textarea
             ref={srcTextRef}
-            className="border p-2 w-full bg-scriptorium-red-left rounded-lg"
+            className="border p-2 w-full bg-scriptorium-red-left rounded-lg no-highlights text-2xl"
             onChange={(e) => {
               handleSrcTextChange(e);
               autoResize(e);
@@ -142,13 +142,13 @@ const TranslationComponent: React.FC = () => {
           </button>
         </div>
         <div className="w-1/2 pl-4">
-          <h2 className="text-2xl mb-4 text-center text-scriptorium-red">
+          <h2 className="text-3xl mb-4 text-center">
             {isEnglishToCoptic ? "Coptic" : "English"}
           </h2>
           <textarea
             ref={tgtTextRef}
-            placeholder="Translation"
-            className="border p-2 w-full bg-scriptorium-red-left rounded-lg no-highlights"
+            placeholder= {`${isEnglishToCoptic ? "Sahidic Coptic" : "English"} Translation`}
+            className="border p-2 w-full bg-scriptorium-red-left rounded-lg no-highlights text-2xl"
             value={tgtTextLoading ? tgtText + "..." : tgtText}
             readOnly={true}
             style={{
@@ -161,7 +161,7 @@ const TranslationComponent: React.FC = () => {
           />
         </div>
       </div>
-      {error && <div className="text-red-500">{"❗️ " + error}</div>}
+      {error && <div className="text-error">{"❗️ " + error}</div>}
     </div>
   );
 };

@@ -17,9 +17,9 @@ const Footer: React.FC = () => {
           Williams College.
         </p>
         <p className="mb-2">
-          This model was created using data from the Coptic Scriptorium. It{"'"}
-          s not perfect and will sometimes produce inaccurate results. Use with
-          caution.
+          This translator was created using data from the <a href="https://data.copticscriptorium.org" target="_blank" rel="noopener noreferrer">Coptic Scriptorium.</a> It{"'"}
+          s not perfect and will sometimes produce inaccurate results, and is not suitable for the Bohairic dialect.
+          Use with caution.
         </p>
 
         <div className="flex justify-start">
