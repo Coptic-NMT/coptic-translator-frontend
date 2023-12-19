@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Coptic Translator",
-  description: "Coptic translator",
+  description: "Coptic translator provides an English to Coptic and Coptic to English translation tool using neural machine translation",
 };
 
 export default function RootLayout({
