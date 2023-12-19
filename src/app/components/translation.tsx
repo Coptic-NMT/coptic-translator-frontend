@@ -4,8 +4,8 @@ import { FaExchangeAlt } from "react-icons/fa";
 // import css
 import "./translation.css";
 
-const ENGLISH_API: string = process.env.NEXT_PUBLIC_ENGLISH_API ?? "";
-const COPTIC_API: string = process.env.NEXT_PUBLIC_COPTIC_API ?? "";
+const ENGLISH_API: string = "/api/english";
+const COPTIC_API: string = "/api/coptic";
 
 const DELAY = 500;
 const regexEnglish = /^[a-zA-Z\s.,!?'"-;:]*$/;
