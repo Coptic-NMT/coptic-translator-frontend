@@ -1,9 +1,9 @@
 import React, { useState, ChangeEvent, use, useEffect } from "react";
 import { FaExchangeAlt } from "react-icons/fa";
+
 // import css
 import "./translation.css";
 
-console.log(process.env + "RR");
 const ENGLISH_API: string = process.env.NEXT_PUBLIC_ENGLISH_API ?? "";
 const COPTIC_API: string = process.env.NEXT_PUBLIC_COPTIC_API ?? "";
 
@@ -147,7 +147,9 @@ const TranslationComponent: React.FC = () => {
           </h2>
           <textarea
             ref={tgtTextRef}
-            placeholder= {`${isEnglishToCoptic ? "Sahidic Coptic" : "English"} Translation`}
+            placeholder={`${
+              isEnglishToCoptic ? "Sahidic Coptic" : "English"
+            } Translation`}
             className="border p-2 w-full bg-scriptorium-red-left rounded-lg no-highlights text-2xl"
             value={tgtTextLoading ? tgtText + "..." : tgtText}
             readOnly={true}
