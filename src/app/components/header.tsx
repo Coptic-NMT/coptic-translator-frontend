@@ -23,6 +23,7 @@ const Header: React.FC = () => {
             Coptic Translator
           </Link>
         </h1>
+        <link rel="icon" href="/google/favicon.ico"></link>
       </header>
       <div style={{ display: "flex", alignItems: "center" }}>
         <a
