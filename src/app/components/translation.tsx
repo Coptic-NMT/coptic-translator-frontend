@@ -8,7 +8,7 @@ const ENGLISH_API: string = "/api/english";
 const COPTIC_API: string = "/api/coptic";
 
 const DELAY = 500;
-const regexEnglish = /^[a-zA-Z\s.,!?'"-;:]*$/;
+const regexEnglish = /^[a-zA-Z\s.,!?'"-;:“”]*$/;
 const regexCoptic = /^[\u2C80-\u2CFF\u03E2-\u03EF\d\s.,!?'"-;:]*$/;
 
 const TranslationComponent: React.FC = () => {

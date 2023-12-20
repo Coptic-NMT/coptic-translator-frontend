@@ -2,7 +2,7 @@
 import React from "react";
 import "./translation.css";
 import Link from "next/link";
-
+import Image from "next/image";
 const Footer: React.FC = () => {
   return (
     <footer
@@ -89,7 +89,7 @@ const Footer: React.FC = () => {
                 title="PayPal - The safer, easier way to pay online!"
                 alt="Donate with PayPal button"
               />
-              <img
+              <Image
                 alt=""
                 src="https://www.paypal.com/en_US/i/scr/pixel.gif"
                 width="1"

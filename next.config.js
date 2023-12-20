@@ -8,6 +8,15 @@ const nextConfig = {
       },
     ];
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "www.paypal.com",
+        port: "",
+      },
+    ],
+  },
 };
 
 module.exports = nextConfig;
