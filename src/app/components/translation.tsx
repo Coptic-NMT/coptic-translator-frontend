@@ -60,7 +60,7 @@ const TranslationComponent: React.FC = () => {
         })
         .then((data) => data.translation)
         .catch((err) => {
-          return "";
+          return tgtText;
         })
         .finally(() => setTgtTextLoading(false));
       setTgtText(translation);
