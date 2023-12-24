@@ -18,6 +18,7 @@ const TranslationComponent: React.FC = () => {
   const [isEnglishToCoptic, setIsEnglishToCoptic] = useState<boolean>(true);
   const srcTextRef = React.useRef<HTMLTextAreaElement>(null);
   const tgtTextRef = React.useRef<HTMLTextAreaElement>(null);
+  const [warning, setWarning] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   const placeholderText = (isEnglishToCoptic: boolean) => {
@@ -32,10 +33,17 @@ const TranslationComponent: React.FC = () => {
     const signal = controller.signal;
     translationTimeout = setTimeout(async () => {
       const api = isEnglishToCoptic ? COPTIC_API : ENGLISH_API;
-      if (srcText === "") {
+      const input = srcText.trim().replace(/\s+/, " ");
+      if (input === "") {
         setTgtText("");
         setError(null);
+        setWarning(null);
         return;
+      }
+      if (input.split(/\n/).length > 1) {
+        setWarning(
+          "Input contains multiple lines. Translations may be more inaccurate. Try using one or two lines at a time for better accuracy."
+        );
       }
       setTgtTextLoading(true);
       const translation = await fetch(api, {
@@ -43,7 +51,7 @@ const TranslationComponent: React.FC = () => {
         headers: {
           "Content-Type": "text/plain",
         },
-        body: srcText,
+        body: input,
         signal: signal,
       })
         .then((response) => {
@@ -83,6 +91,7 @@ const TranslationComponent: React.FC = () => {
     if (isEnglishToCoptic) {
       if (regexEnglish.test(newText)) {
         setError(null);
+        setWarning(null);
         setSrcText(newText);
       } else {
         setError("Only English is allowed. Please use the English keyboard.");
@@ -90,6 +99,7 @@ const TranslationComponent: React.FC = () => {
     } else {
       if (regexCoptic.test(newText)) {
         setError(null);
+        setWarning(null);
         setSrcText(newText);
       } else {
         setError(
@@ -163,6 +173,7 @@ const TranslationComponent: React.FC = () => {
           />
         </div>
       </div>
+      {warning && <div className="text-error">{"⚠️ " + warning}</div>}
       {error && <div className="text-error">{"❗️ " + error}</div>}
     </div>
   );
