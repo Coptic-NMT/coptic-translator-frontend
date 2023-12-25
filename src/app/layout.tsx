@@ -6,9 +6,28 @@ import Footer from "./components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
+const addJsonLd = () => {
+  return {
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          position: 1,
+          "@type": "ListItem",
+          item: {
+            "@id": "https://www.coptictranslator.com/",
+            name: "Coptic Translator",
+          },
+        },
+      ],
+    }),
+  };
+};
 export const metadata: Metadata = {
   title: "Coptic Translator",
-  description: "Automatically translate English to Coptic and Coptic to English phrases and sentences, free of charge.",
+  description:
+    "Automatically translate English to Coptic and Coptic to English phrases and sentences, free of charge.",
 };
 
 export default function RootLayout({
@@ -26,6 +45,11 @@ export default function RootLayout({
           </div>
           <Footer />
         </div>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={addJsonLd()}
+          key="item-jsonld"
+        />
       </body>
     </html>
   );
