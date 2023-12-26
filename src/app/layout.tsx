@@ -10,17 +10,9 @@ const addJsonLd = () => {
   return {
     __html: JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        {
-          position: 1,
-          "@type": "ListItem",
-          item: {
-            "@id": "https://www.coptictranslator.com/",
-            name: "Coptic Translator",
-          },
-        },
-      ],
+      "@type": "WebSite",
+      name: "Coptic Translator",
+      url: "https://www.coptictranslator.com",
     }),
   };
 };
