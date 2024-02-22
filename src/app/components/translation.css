@@ -49,6 +49,11 @@
     font-size: 18px;
 }
 
+.text-warning {
+    color: #ff6200;
+    font-family: 'Asul', Helvetica, Arial, sans-serif;
+    font-size: 18px;
+}
 .rounded-pyramid {
     border-radius: 5px;
     border: 2px solid #a4122f;

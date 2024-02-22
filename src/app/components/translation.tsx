@@ -7,7 +7,8 @@ import "./translation.css";
 const ENGLISH_API: string = "/api/english";
 const COPTIC_API: string = "/api/coptic";
 
-const DELAY = 1500;
+const LOADING_DELAY = 4500;
+const DELAY = 800;
 const regexEnglish = /^[a-zA-Z\s.,!?'"-;:“”]*$/;
 const regexCoptic = /^[\u2C80-\u2CFF\u03E2-\u03EF\d\s.,!?'"-;:]*$/;
 
@@ -18,6 +19,7 @@ const TranslationComponent: React.FC = () => {
   const [isEnglishToCoptic, setIsEnglishToCoptic] = useState<boolean>(true);
   const srcTextRef = React.useRef<HTMLTextAreaElement>(null);
   const tgtTextRef = React.useRef<HTMLTextAreaElement>(null);
+  const [isModelStartingUp, setIsModelStartingUp] = useState<boolean>(false);
   const [warning, setWarning] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -29,6 +31,7 @@ const TranslationComponent: React.FC = () => {
 
   useEffect(() => {
     let translationTimeout: NodeJS.Timeout;
+    let modelStartingUpTimeout: NodeJS.Timeout;
     const controller = new AbortController();
     const signal = controller.signal;
     translationTimeout = setTimeout(async () => {
@@ -45,6 +48,9 @@ const TranslationComponent: React.FC = () => {
           "Input contains multiple lines. Translations may be more inaccurate. Try using one or two lines at a time for better accuracy."
         );
       }
+      modelStartingUpTimeout = setTimeout(() => {
+        setIsModelStartingUp(true);
+      }, LOADING_DELAY);
       setTgtTextLoading(true);
       const translation = await fetch(api, {
         method: "POST",
@@ -59,24 +65,36 @@ const TranslationComponent: React.FC = () => {
             return response.json();
           }
           if (response.status === 422) {
+            clearTimeout(modelStartingUpTimeout);
+            setIsModelStartingUp(false);
             setError("Input too long. Try smaller chunks at a time.");
             return { translation: "" };
           } else {
+            clearTimeout(modelStartingUpTimeout);
+            setIsModelStartingUp(false);
             setError("Server is down. Please try again later.");
             return { translation: "" };
           }
         })
         .then((data) => data.translation)
         .catch((err) => {
+          clearTimeout(modelStartingUpTimeout);
+          setIsModelStartingUp(false);
           return tgtText;
         })
-        .finally(() => setTgtTextLoading(false));
+        .finally(() => {
+          clearTimeout(modelStartingUpTimeout);
+          setIsModelStartingUp(false);
+          setTgtTextLoading(false);
+        });
       setTgtText(translation);
     }, DELAY);
     return () => {
       clearTimeout(translationTimeout);
+      clearTimeout(modelStartingUpTimeout);
       controller.abort();
       setTgtTextLoading(false);
+      setIsModelStartingUp(false);
     };
   }, [srcText, isEnglishToCoptic]);
 
@@ -173,7 +191,10 @@ const TranslationComponent: React.FC = () => {
           />
         </div>
       </div>
-      {warning && <div className="text-error">{"⚠️ " + warning}</div>}
+      {isModelStartingUp && (
+        <div className="text-warning">⏳ Model is starting up, this can take up to 15 seconds. Consider donating to help improve our servers.</div>
+      )}
+      {warning && <div className="text-warning">{"⚠️ " + warning}</div>}
       {error && <div className="text-error">{"❗️ " + error}</div>}
     </div>
   );
