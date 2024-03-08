@@ -12,6 +12,8 @@ const DELAY = 800;
 const regexEnglish = /^[a-zA-Z\s.,!?'"-;:“”]*$/;
 const regexCoptic = /^[\u2C80-\u2CFF\u03E2-\u03EF\d\s.,!?'"-;:]*$/;
 
+const regexMatchAll = /.*/;
+
 const TranslationComponent: React.FC = () => {
   const [srcText, setSrcText] = useState<string>("");
   const [tgtText, setTgtText] = useState<string>("");
@@ -107,7 +109,7 @@ const TranslationComponent: React.FC = () => {
   const handleSrcTextChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     const newText = e.target.value;
     if (isEnglishToCoptic) {
-      if (regexEnglish.test(newText)) {
+      if (regexMatchAll.test(newText)) {
         setError(null);
         setWarning(null);
         setSrcText(newText);
@@ -115,7 +117,7 @@ const TranslationComponent: React.FC = () => {
         setError("Only English is allowed. Please use the English keyboard.");
       }
     } else {
-      if (regexCoptic.test(newText)) {
+      if (regexMatchAll.test(newText)) {
         setError(null);
         setWarning(null);
         setSrcText(newText);
