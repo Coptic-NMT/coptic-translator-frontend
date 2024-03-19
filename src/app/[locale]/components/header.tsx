@@ -5,9 +5,12 @@ import Image from "next/image";
 import Cross from "../../public/cross.png";
 
 import "../globals.css";
-import Link from "next/link";
+import {Link} from '../../../navigation';
+import { useTranslations } from "next-intl";
 
 const Header: React.FC = () => {
+  const t = useTranslations("Layout");
+
   return (
     <div
       className="mb-20"
@@ -19,8 +22,8 @@ const Header: React.FC = () => {
     >
       <header className="text-center">
         <h1 className="text-scriptorium-red ">
-          <Link href="." className="font-semibold text-4xl hover:no-underline ">
-            Coptic Translator
+          <Link href="/" className="font-semibold text-4xl hover:no-underline ">
+            {t("title")}
           </Link>
         </h1>
       </header>

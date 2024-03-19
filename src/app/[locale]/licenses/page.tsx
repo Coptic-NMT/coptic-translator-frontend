@@ -1,11 +1,12 @@
-import Footer from "../components/footer";
-import Header from "../components/header";
 import Info from "../components/info";
 import "../components/translation.css";
+import { useTranslations } from "next-intl";
 
+// No translating for licenses
 const Licenses = () => {
+  const t = useTranslations("Licenses");
   return (
-    <div>
+    <div dir="ltr">
       <Info title="Software Licenses">
         The Coptic Translator is licensed under the{" "}
         <a

@@ -1,0 +1,31 @@
+{
+    "Metadata": {
+        "title": "Coptic Translator",
+        "description": "Automatically translate English to Coptic and Coptic to English phrases and sentences, free of charge."
+    },
+    "Layout": {
+        "title": "Coptic Translator"
+    },
+    "Page": {
+        "coptic": "Coptic",
+        "arabic": "Arabic",
+        "english": "English",
+        "english-input-msg": "Type or paste English text here",
+        "coptic-input-msg": "Type or paste Coptic text here",
+        "english-output-msg": "English translation",
+        "sahidic-coptic-output-msg": "Coptic translation",
+        "input-length-warning": "Input contains multiple lines. Translations may be more inaccurate. Try using one or two lines at a time for better accuracy."
+    },
+    "Footer": {
+        "andrew-name": "Andrew Megalaa",
+        "maxim-name": "Maxim Enis",
+        "created-by": "Created by",
+        "and": "and",
+        "at-williams": "at Williams College",
+        "by-data-from": "This translator was created using data from the",
+        "coptic-scriptorium": "Coptic Scriptorium",
+        "disclaimer-msg": "It's not perfect and will sometimes produce inaccurate results, and is not suitable for the Bohairic dialect. Use with caution.",
+        "server-down-err": "Server is down. Please try again later."
+    },
+    "Licenses": {}
+}

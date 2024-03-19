@@ -1,5 +1,6 @@
 import React, { useState, ChangeEvent, use, useEffect } from "react";
 import { FaExchangeAlt } from "react-icons/fa";
+import { useTranslations } from "next-intl";
 
 // import css
 import "./translation.css";
@@ -15,6 +16,8 @@ const regexCoptic = /^[\u2C80-\u2CFF\u03E2-\u03EF\d\s.,!?'"-;:]*$/;
 const regexMatchAll = /.*/;
 
 const TranslationComponent: React.FC = () => {
+  const t = useTranslations("Page");
+
   const [srcText, setSrcText] = useState<string>("");
   const [tgtText, setTgtText] = useState<string>("");
   const [tgtTextLoading, setTgtTextLoading] = useState<boolean>(false);
@@ -26,9 +29,7 @@ const TranslationComponent: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   const placeholderText = (isEnglishToCoptic: boolean) => {
-    return `Type or paste ${
-      isEnglishToCoptic ? "English" : "Sahidic Coptic"
-    } text here...`;
+    return isEnglishToCoptic ? t("english-input-msg") : t("coptic-input-msg");
   };
 
   useEffect(() => {
@@ -46,9 +47,7 @@ const TranslationComponent: React.FC = () => {
         return;
       }
       if (input.split(/\n/).length > 1) {
-        setWarning(
-          "Input contains multiple lines. Translations may be more inaccurate. Try using one or two lines at a time for better accuracy."
-        );
+        setWarning(t("input-length-warning"));
       }
       modelStartingUpTimeout = setTimeout(() => {
         setIsModelStartingUp(true);
@@ -141,12 +140,13 @@ const TranslationComponent: React.FC = () => {
 
   return (
     <div>
-      <div className="w-full flex justify-center text-scriptorium-red mb-10">
-        <div className="w-1/2 pr-4">
+      <div className="w-full flex justify-center text-scriptorium-red">
+        <div className="w-1/2">
           <h2 className="text-3xl mb-4 text-center">
-            {isEnglishToCoptic ? "English" : "Coptic"}
+            {isEnglishToCoptic ? t("english") : t("coptic")}
           </h2>
           <textarea
+            dir="ltr"
             ref={srcTextRef}
             className="border p-2 w-full bg-scriptorium-red-left rounded-lg no-highlights text-2xl"
             onChange={(e) => {
@@ -166,20 +166,23 @@ const TranslationComponent: React.FC = () => {
         <div className="flex flex-col items-center justify-center">
           <button
             onClick={() => setIsEnglishToCoptic(!isEnglishToCoptic)}
-            className="p-2 bg-scriptorium-red-left text-teal rounded-pyramid shadow-md"
+            className="p-2 mx-4 bg-scriptorium-red-left text-teal rounded-pyramid shadow-md"
           >
             <FaExchangeAlt size={24} />
           </button>
         </div>
-        <div className="w-1/2 pl-4">
+        <div className="w-1/2">
           <h2 className="text-3xl mb-4 text-center">
-            {isEnglishToCoptic ? "Coptic" : "English"}
+            {isEnglishToCoptic ? t("coptic") : t("english")}
           </h2>
           <textarea
+            dir="ltr"
             ref={tgtTextRef}
-            placeholder={`${
-              isEnglishToCoptic ? "Sahidic Coptic" : "English"
-            } Translation`}
+            placeholder={
+              isEnglishToCoptic
+                ? t("sahidic-coptic-output-msg")
+                : t("english-output-msg")
+            }
             className="border p-2 w-full bg-scriptorium-red-left rounded-lg no-highlights text-2xl"
             value={tgtTextLoading ? tgtText + "..." : tgtText}
             readOnly={true}
@@ -194,7 +197,10 @@ const TranslationComponent: React.FC = () => {
         </div>
       </div>
       {isModelStartingUp && (
-        <div className="text-warning">⏳ Model is starting up, this can take up to 15 seconds. Consider donating to help improve our servers.</div>
+        <div className="text-warning">
+          ⏳ Model is starting up, this can take up to 15 seconds. Consider
+          donating to help improve our servers.
+        </div>
       )}
       {warning && <div className="text-warning">{"⚠️ " + warning}</div>}
       {error && <div className="text-error">{"❗️ " + error}</div>}

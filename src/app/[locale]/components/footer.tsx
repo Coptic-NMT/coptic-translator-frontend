@@ -1,9 +1,11 @@
 // Footer.tsx
 import React from "react";
 import "./translation.css";
-import Link from "next/link";
+import {Link} from '../../../navigation';
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 const Footer: React.FC = () => {
+  const t = useTranslations("Footer");
   return (
     <footer
       className="text-gray-800 p-4 absolute bottom-0 left-0 right-0 text-scriptorium-grey"
@@ -12,22 +14,22 @@ const Footer: React.FC = () => {
       <div className="px-4 text-sm">
         <div>
           <p className="mb-2">
-            Created by{" "}
-            <a href="mailto:anm4+coptic@williams.edu">Andrew Megalaa </a>
-            and <a href="mailto:me4+coptic@williams.edu">Maxim Enis</a> at
-            Williams College.
+            {t("created-by") + " "}
+            <a href="mailto:anm4+coptic@williams.edu">{t("andrew-name")}</a>{" "}
+            {t("and") + " "}
+            <a href="mailto:me4+coptic@williams.edu">{t("maxim-name")}</a>{" "}
+            {t("at-williams")}
           </p>
           <p className="mb-2">
-            This translator was created using data from the{" "}
+            {t("by-data-from")}{" "}
             <a
               href="https://data.copticscriptorium.org"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Coptic Scriptorium.
-            </a>{" "}
-            It{"'"}s not perfect and will sometimes produce inaccurate results,
-            and is not suitable for the Bohairic dialect. Use with caution.
+              {t("coptic-scriptorium")}
+            </a>{". "}
+            {t("disclaimer-msg")}
           </p>
 
           <div
@@ -41,7 +43,7 @@ const Footer: React.FC = () => {
             <div>
               <a
                 // link to paper located in public folder
-                href="paper.pdf"
+                href="/paper.pdf"
                 className="text-blue-500 hover:text-blue-700 mr-4"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -59,6 +61,7 @@ const Footer: React.FC = () => {
               <Link
                 href="/licenses"
                 className="text-blue-500 hover:text-blue-700 mr-4"
+                
               >
                 Data and Licenses
               </Link>
