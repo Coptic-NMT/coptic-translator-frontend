@@ -8,12 +8,12 @@ interface InfoProps {
 const Info: React.FC<InfoProps> = ({ title, children }) => {
   return (
     <div className="w-full text-left">
-      <h1 className="text-scriptorium-red" style={{ fontSize: "1.5rem" }}>
+      <h1 className="text-scriptorium-red md:text-2xl">
         {title}
       </h1>
       <div
-        className="border p-2  bg-scriptorium-red-left text-teal rounded-lg text-scriptorium-grey"
-        style={{ fontSize: "1.3rem", background: "none", border: "none" }}
+        className="border p-2  bg-scriptorium-red-left rounded-lg text-scriptorium-grey md:text-xl"
+        style={{ background: "none", border: "none" }}
       >
         {children}
       </div>
