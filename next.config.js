@@ -1,5 +1,5 @@
-const createNextIntlPlugin = require('next-intl/plugin');
- 
+const createNextIntlPlugin = require("next-intl/plugin");
+
 const withNextIntl = createNextIntlPlugin();
 
 /** @type {import('next').NextConfig} */
@@ -8,7 +8,7 @@ const nextConfig = {
     return [
       {
         source: "/api/:path*",
-        destination: "https://backend-2tuprk3lxq-uc.a.run.app/:path*", // Proxy to Backend
+        destination: "https://backend-2tuprk3lxq-uc.a.run.app/:path*",
       },
     ];
   },

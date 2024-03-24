@@ -46,17 +46,17 @@ export default function RootLayout({
   return (
     <html lang={locale} dir={direction}>
       <body className={inter.className}>
-        <div className="flex flex-col min-h-screen relative bg-egyptian text-teal">
-          <div className="p-8 mb-20">
+        <div className="overflow-auto flex flex-col grow min-h-screen relative bg-egyptian text-teal">
+          <div className="p-4 md:p-8">
             <Header />
             <NextIntlClientProvider messages={messages} locale={locale}>
               {children}
             </NextIntlClientProvider>
           </div>
-          <div className="p-8 mb-40">
+          <div className="p-4 md:p-8">
             <LocaleSwitcher />
           </div>
-          <div className="-mt-10">
+          <div className="mt-auto">
             <Footer />
           </div>
         </div>

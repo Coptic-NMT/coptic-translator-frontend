@@ -5,29 +5,25 @@ import Image from "next/image";
 import Cross from "../../public/cross.png";
 
 import "../globals.css";
-import {Link} from '../../../navigation';
+import { Link } from "../../../navigation";
 import { useTranslations } from "next-intl";
 
 const Header: React.FC = () => {
   const t = useTranslations("Layout");
 
   return (
-    <div
-      className="mb-20"
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-      }}
-    >
+    <div className="mb-5 md:mb-20 align-center flex flex-row grow  justify-center md:justify-between items-center">
       <header className="text-center">
         <h1 className="text-scriptorium-red ">
-          <Link href="/" className="font-semibold text-4xl hover:no-underline ">
+          <Link
+            href="/"
+            className="font-semibold md:text-4xl text-3xl hover:no-underline "
+          >
             {t("title")}
           </Link>
         </h1>
       </header>
-      <div style={{ display: "flex", alignItems: "center" }}>
+      <div className="hidden md:flex" style={{ alignItems: "center" }}>
         <a
           href="https://en.wikipedia.org/wiki/Copts"
           target="_blank"

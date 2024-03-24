@@ -7,14 +7,19 @@
         "title": "Coptic Translator"
     },
     "Page": {
-        "coptic": "Coptic",
-        "arabic": "Arabic",
-        "english": "English",
+        "cop": "Coptic",
+        "ar": "Arabic",
+        "en": "English",
         "english-input-msg": "Type or paste English text here",
-        "coptic-input-msg": "Type or paste Coptic text here",
+        "sahidic-coptic-input-msg": "Type or paste Coptic text here",
+        "arabic-input-msg": "Type or paste Arabic text here",
         "english-output-msg": "English translation",
+        "arabic-output-msg": "Arabic translation",
         "sahidic-coptic-output-msg": "Coptic translation",
-        "input-length-warning": "Input contains multiple lines. Translations may be more inaccurate. Try using one or two lines at a time for better accuracy."
+        "input-length-error": "Input too long. Try smaller chunks at a time.",
+        "input-length-warning": "Input contains multiple lines. Translations may be more inaccurate. Try using one or two lines at a time for better accuracy.",
+        "startup-warning": "⏳ Model is starting up, this can take up to 15 seconds. Consider donating to help improve our servers.",
+        "server-down-err": "Server is down. Please try again later."
     },
     "Footer": {
         "andrew-name": "Andrew Megalaa",
