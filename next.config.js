@@ -8,7 +8,7 @@ const nextConfig = {
     return [
       {
         source: "/api/:path*",
-        destination: "https://backend-2tuprk3lxq-uc.a.run.app/:path*",
+        destination: "https://backend-python-2tuprk3lxq-uc.a.run.app/:path*",
       },
     ];
   },
