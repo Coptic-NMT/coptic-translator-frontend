@@ -190,7 +190,7 @@ const TranslationComponent: React.FC = () => {
               }
               setSrcLanguage(lang);
             }}
-            className="text-xl md:text-2xl bg-egyptian p-2 text-scriptorium-red rounded-pyramid outline-none"
+            className="text-xl md:text-2xl bg-egyptian p-2 text-scriptorium-red rounded-pyramid outline-none text-center"
           >
             {Object.values(Language).map((lang, idx) => (
               <option key={idx} value={lang}>
@@ -216,7 +216,7 @@ const TranslationComponent: React.FC = () => {
               }
               setTgtLanguage(lang);
             }}
-            className="text-xl md:text-2xl bg-egyptian rounded-pyramid no-highlights p-2 outline-none"
+            className="text-xl md:text-2xl bg-egyptian rounded-pyramid no-highlights p-2 outline-none text-center"
           >
             {Object.values(Language).map((lang, idx) => (
               <option key={idx} value={lang}>
