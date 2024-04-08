@@ -15,7 +15,8 @@ const DELAY = 800;
 
 enum Language {
   english = "en",
-  coptic = "cop",
+  sahidic_coptic = "cop_sah",
+  bohairic_coptic = "cop_boh",
   arabic = "ar",
 }
 
@@ -29,7 +30,9 @@ const TranslationComponent: React.FC = () => {
   const [srcLanguage, setSrcLanguage] = useState<Language>(
     locale === "en" ? Language.english : Language.arabic
   );
-  const [tgtLanguage, setTgtLanguage] = useState<Language>(Language.coptic);
+  const [tgtLanguage, setTgtLanguage] = useState<Language>(
+    Language.sahidic_coptic
+  );
 
   const srcTextRef = React.useRef<HTMLTextAreaElement>(null);
   const tgtTextRef = React.useRef<HTMLTextAreaElement>(null);
@@ -41,8 +44,10 @@ const TranslationComponent: React.FC = () => {
     switch (srcLanguage) {
       case Language.english:
         return t("english-input-msg");
-      case Language.coptic:
+      case Language.sahidic_coptic:
         return t("sahidic-coptic-input-msg");
+      case Language.bohairic_coptic:
+        return t("bohairic-coptic-input-msg");
       case Language.arabic:
         return t("arabic-input-msg");
       default:
@@ -54,8 +59,10 @@ const TranslationComponent: React.FC = () => {
     switch (tgtLanguage) {
       case Language.english:
         return t("english-output-msg");
-      case Language.coptic:
+      case Language.sahidic_coptic:
         return t("sahidic-coptic-output-msg");
+      case Language.bohairic_coptic:
+        return t("bohairic-coptic-output-msg");
       case Language.arabic:
         return t("arabic-output-msg");
       default:
@@ -172,75 +179,54 @@ const TranslationComponent: React.FC = () => {
   return (
     <div>
       <div className="w-full justify-center text-scriptorium-red">
-        <div className="md:flex">
-          <div className="flex md:hidden justify-evenly mb-4">
-            <select
-              value={srcLanguage}
-              onChange={(e) => {
-                const lang = e.target.value as Language;
-                if (lang === tgtLanguage) {
-                  reverseLanguages();
-                  return;
-                }
-                setSrcLanguage(lang);
-              }}
-              className="text-xl p-2 rounded-pyramid outline-none"
+        <div className="flex justify-evenly mb-4">
+          <select
+            value={srcLanguage}
+            onChange={(e) => {
+              const lang = e.target.value as Language;
+              if (lang === tgtLanguage) {
+                reverseLanguages();
+                return;
+              }
+              setSrcLanguage(lang);
+            }}
+            className="text-xl md:text-2xl bg-egyptian p-2 text-scriptorium-red rounded-pyramid outline-none"
+          >
+            {Object.values(Language).map((lang, idx) => (
+              <option key={idx} value={lang}>
+                {t(lang)}
+              </option>
+            ))}
+          </select>
+          <div className="flex items-center justify-center">
+            <button
+              onClick={reverseLanguages}
+              className="p-2 mx-4 bg-egyptian rounded-pyramid shrink-0"
             >
-              {Object.values(Language).map((lang, idx) => (
-                <option key={idx} value={lang}>
-                  {t(lang)}
-                </option>
-              ))}
-            </select>
-            <div className="flex items-center justify-center">
-              <button
-                onClick={reverseLanguages}
-                className="p-2 mx-4 bg-scriptorium-red-left rounded-pyramid shrink-0"
-              >
-                <FaExchangeAlt size={24} />
-              </button>
-            </div>
-            <select
-              value={tgtLanguage}
-              onChange={(e) => {
-                const lang = e.target.value as Language;
-                if (lang === srcLanguage) {
-                  reverseLanguages();
-                  return;
-                }
-                setTgtLanguage(lang);
-              }}
-              className="text-xl rounded-pyramid no-highlights p-2 outline-none"
-            >
-              {Object.values(Language).map((lang, idx) => (
-                <option key={idx} value={lang}>
-                  {t(lang)}
-                </option>
-              ))}
-            </select>
+              <FaExchangeAlt size={24} />
+            </button>
           </div>
-          <div className="w-full md:w-1/2">
-            <div className="hidden md:flex text-center justify-evenly">
-              {Object.values(Language).map((lang, idx) => (
-                <h2
-                  onClick={() => {
-                    if (lang === tgtLanguage) {
-                      reverseLanguages();
-                      return;
-                    }
-                    setSrcLanguage(lang);
-                  }}
-                  key={idx}
-                  className={
-                    lang === srcLanguage
-                      ? "md:text-3xl text-2xl mb-4 inline underline   underline-offset-8"
-                      : "md:text-3xl text-2xl mb-4 inline text-scriptorium-grey cursor-pointer"
-                  }
-                >
-                  {t(lang)}
-                </h2>
-              ))}
-            </div>
+          <select
+            value={tgtLanguage}
+            onChange={(e) => {
+              const lang = e.target.value as Language;
+              if (lang === srcLanguage) {
+                reverseLanguages();
+                return;
+              }
+              setTgtLanguage(lang);
+            }}
+            className="text-xl md:text-2xl bg-egyptian rounded-pyramid no-highlights p-2 outline-none"
+          >
+            {Object.values(Language).map((lang, idx) => (
+              <option key={idx} value={lang}>
+                {t(lang)}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="lg:flex-row lg:flex">
+          <div className="w-full lg:w-1/2">
             <textarea
               dir={
                 srcText === ""
@@ -265,7 +251,7 @@ const TranslationComponent: React.FC = () => {
               }}
             />
           </div>
-          <div className="hidden md:flex items-center justify-center">
+          <div className="hidden lg:flex lg:invisible items-center justify-center">
             <button
               onClick={reverseLanguages}
               className="p-2 mx-4 bg-scriptorium-red-left text-teal rounded-pyramid"
@@ -273,28 +259,7 @@ const TranslationComponent: React.FC = () => {
               <FaExchangeAlt size={24} />
             </button>
           </div>
-          <div className="w-full md:w-1/2">
-            <div className="text-center hidden md:flex justify-evenly">
-              {Object.values(Language).map((lang, idx) => (
-                <h2
-                  onClick={() => {
-                    if (lang === srcLanguage) {
-                      reverseLanguages();
-                      return;
-                    }
-                    setTgtLanguage(lang);
-                  }}
-                  key={idx}
-                  className={
-                    lang === tgtLanguage
-                      ? "md:text-3xl text-2xl mb-4 inline underline   underline-offset-8"
-                      : "md:text-3xl text-2xl mb-4 inline text-scriptorium-grey cursor-pointer"
-                  }
-                >
-                  {t(lang)}
-                </h2>
-              ))}
-            </div>
+          <div className="w-full lg:w-1/2">
             <textarea
               dir={
                 tgtText === ""
