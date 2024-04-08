@@ -31,7 +31,7 @@ const TranslationComponent: React.FC = () => {
     locale === "en" ? Language.english : Language.arabic
   );
   const [tgtLanguage, setTgtLanguage] = useState<Language>(
-    Language.sahidic_coptic
+    Language.bohairic_coptic
   );
 
   const srcTextRef = React.useRef<HTMLTextAreaElement>(null);
