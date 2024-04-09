@@ -32,7 +32,7 @@
         "at-williams": "at Williams College",
         "by-data-from": "This translator was created using data from the",
         "coptic-scriptorium": "Coptic Scriptorium",
-        "disclaimer-msg": "It's not perfect and will sometimes produce inaccurate results, and is not suitable for the Bohairic dialect. Use with caution.",
+        "disclaimer-msg": "It's not perfect and will sometimes produce inaccurate results. Use with caution.",
         "server-down-err": "Server is down. Please try again later."
     },
     "Licenses": {}
