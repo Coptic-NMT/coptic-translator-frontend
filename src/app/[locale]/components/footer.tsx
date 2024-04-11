@@ -23,7 +23,7 @@ const Footer: React.FC = () => {
             {t("at-williams")}
           </p>
           <p className="mb-2">
-            {t("by-data-from")}{" "}
+            {/* {t("by-data-from")}{" "}
             <a
               href="https://data.copticscriptorium.org"
               target="_blank"
@@ -31,7 +31,7 @@ const Footer: React.FC = () => {
             >
               {t("coptic-scriptorium")}
             </a>
-            {". "}
+            {". "} */}
             {t("disclaimer-msg")}
           </p>
 
