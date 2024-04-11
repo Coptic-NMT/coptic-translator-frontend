@@ -18,6 +18,9 @@ enum Language {
   sahidic_coptic = "cop_sah",
   bohairic_coptic = "cop_boh",
   arabic = "ar",
+  german = "de",
+  french = "fr",
+  dutch = "nl",
 }
 
 const TranslationComponent: React.FC = () => {
@@ -50,6 +53,12 @@ const TranslationComponent: React.FC = () => {
         return t("bohairic-coptic-input-msg");
       case Language.arabic:
         return t("arabic-input-msg");
+      case Language.german:
+        return t("german-input-msg");
+      case Language.french:
+        return t("french-input-msg");
+      case Language.dutch:
+        return t("dutch-input-msg");
       default:
         return "";
     }
@@ -65,6 +74,12 @@ const TranslationComponent: React.FC = () => {
         return t("bohairic-coptic-output-msg");
       case Language.arabic:
         return t("arabic-output-msg");
+      case Language.german:
+        return t("german-output-msg");
+      case Language.french:
+        return t("french-output-msg");
+      case Language.dutch:
+        return t("dutch-output-msg");
       default:
         return "";
     }
