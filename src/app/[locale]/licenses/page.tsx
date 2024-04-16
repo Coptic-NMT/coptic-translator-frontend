@@ -22,7 +22,14 @@ const Licenses = () => {
       </Info>
       <Info title="The Coptic Scriptorium">
         Caroline T. Schroeder, Amir Zeldes, et al., Coptic SCRIPTORIUM,
-        2013-2023, http://copticscriptorium.org.
+        2013-2023, 
+        <a
+              href="http://copticscriptorium.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 hover:text-blue-700"
+            >http://copticscriptorium.org.</a>
+        
         <Info title="Data Licenses">
           All the documents used for training are licensed{" "}
           <a
@@ -89,8 +96,9 @@ const Licenses = () => {
           rel="noopener noreferrer"
           className="text-blue-500 hover:text-blue-700"
         >
-          So Miyagawa
+           So Miyagawa
         </a>
+        {" "}at University of Tsukuba
       </Info>
       <Info title="Bohairic Bible Data">Bishoy Girgis</Info>
     </div>
