@@ -43,7 +43,16 @@ const Footer: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Our Paper
+              Translator Paper
+            </a>
+            <a
+              // link to paper located in public folder
+              href="https://arxiv.org/abs/2404.13813"
+              className="text-blue-500 mb-2 hover:text-blue-700 md:mr-4"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LLM to NMT Paper
             </a>
             <a
               href="https://github.com/orgs/Coptic-NMT/repositories"
