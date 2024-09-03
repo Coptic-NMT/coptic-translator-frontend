@@ -69,7 +69,7 @@ const Footer: React.FC = () => {
               Data and Licenses
             </Link>
             <a
-              href="mailto:anm4+coptic@williams.edu,me4+coptic@williams.edu"
+              href="mailto:anm4@williams.edu,me4@williams.edu"
               className="text-blue-500 mb-2 hover:text-blue-700 md:mr-4"
             >
               Contact Us
