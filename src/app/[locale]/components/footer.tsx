@@ -15,11 +15,11 @@ const Footer: React.FC = () => {
         <div>
           <p className="mb-2">
             {t("created-by") + " "}
-            <a href="mailto:anm4+coptic@williams.edu">
+            <a href="mailto:anm4@williams.edu">
               {t("andrew-name")}
             </a>{" "}
             {t("and") + " "}
-            <a href="mailto:me4+coptic@williams.edu">{t("maxim-name")}</a>{" "}
+            <a href="mailto:me4@williams.edu">{t("maxim-name")}</a>{" "}
             {t("at-williams")}
           </p>
           <p className="mb-2">
