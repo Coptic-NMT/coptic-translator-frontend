@@ -32,7 +32,12 @@
         "input-length-warning": "يحتوي هذا الإدخال على أسطر متعددة. قد تكون الترجمات غير دقيقة أكثر. حاول استخدام سطر أو سطرين في المرة الواحدة للحصول على دقة أفضل.",
         "startup-warning": "⏳ بدء تشغيل الموقع، وقد يستغرق هذا ما يصل إلى ١٥ ثانية. الرجاء التبرع للمساعدة في تحسين الموقع.",
         "server-down-err": "السيرفر وقع حاول مرة اخرى لاحقاً",
-        "try-other-translators": "جرب الترجمة من لغات أخرى"
+        "try-other-translators": "جرب الترجمة من لغات أخرى",
+        "languages-egyptian-arabic": "العربية المصرية",
+        "languages-nubian": "النوبية",
+        "languages-akkadian": "الأكادية",
+        "languages-sumerian": "السومرية",
+        "languages-ancient-greek": "اليونانية القديمة"
     },
     "Footer": {
         "andrew-name": "أندرو مجلع",

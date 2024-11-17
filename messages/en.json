@@ -32,7 +32,12 @@
         "input-length-warning": "Input contains multiple lines. Translations may be more inaccurate. Try using one or two lines at a time for better accuracy.",
         "startup-warning": "⏳ Model is starting up, this can take up to 15 seconds. Consider donating to help improve our servers.",
         "server-down-err": "Server is down. Please try again later.",
-        "try-other-translators": "Try our other translators"
+        "try-other-translators": "Try our other translators",
+        "languages-egyptian-arabic": "Egyptian Arabic",
+        "languages-nubian": "Nubian",
+        "languages-akkadian": "Akkadian",
+        "languages-sumerian": "Sumerian",
+        "languages-ancient-greek": "Ancient Greek"
     },
     "Footer": {
         "andrew-name": "Andrew Megalaa",

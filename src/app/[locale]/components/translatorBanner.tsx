@@ -29,7 +29,7 @@ const TranslatorContent = () => {
                 rel="noopener noreferrer"
                 className="text-scriptorium-red hover:underline"
               >
-                Egyptian Arabic
+                {t("languages-egyptian-arabic")}
               </a>
               <a
                 href="https://polytranslator.com/nubian"
@@ -37,7 +37,7 @@ const TranslatorContent = () => {
                 rel="noopener noreferrer"
                 className="text-scriptorium-red hover:underline"
               >
-                Nubian
+                {t("languages-nubian")}
               </a>
               <a
                 href="https://polytranslator.com/akkadian"
@@ -45,7 +45,7 @@ const TranslatorContent = () => {
                 rel="noopener noreferrer"
                 className="text-scriptorium-red hover:underline"
               >
-                Akkadian
+                {t("languages-akkadian")}
               </a>
               <a
                 href="https://polytranslator.com/sumerian"
@@ -53,7 +53,7 @@ const TranslatorContent = () => {
                 rel="noopener noreferrer"
                 className="text-scriptorium-red hover:underline"
               >
-                Sumerian
+                {t("languages-sumerian")}
               </a>
               <a
                 href="https://polytranslator.com/ancient-greek"
@@ -61,7 +61,7 @@ const TranslatorContent = () => {
                 rel="noopener noreferrer"
                 className="text-scriptorium-red hover:underline"
               >
-                Ancient Greek
+                {t("languages-ancient-greek")}
               </a>
             </div>
           </div>
