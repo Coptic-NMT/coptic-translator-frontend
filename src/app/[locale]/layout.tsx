@@ -6,6 +6,7 @@ import Footer from "./components/footer";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 import useTextDirection from "./components/useTextDirection";
 import LocaleSwitcher from "./components/localeSwitcher";
+import TranslatorBanner from "./components/translatorBanner";
 import { getTranslations } from "next-intl/server";
 import Script from "next/script";
 
@@ -67,9 +68,9 @@ export default function RootLayout({
             <NextIntlClientProvider messages={messages} locale={locale}>
               {children}
             </NextIntlClientProvider>
-          </div>
+            </div>
           <div className="p-4 md:p-8">
-            <LocaleSwitcher />
+            <TranslatorBanner messages={messages} />
           </div>
           <div className="mt-auto">
             <Footer />

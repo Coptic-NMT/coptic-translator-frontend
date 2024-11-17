@@ -4,6 +4,8 @@ import "./translation.css";
 import { Link } from "../../../navigation";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import LocaleSwitcher from "./localeSwitcher";
+
 const Footer: React.FC = () => {
   const t = useTranslations("Footer");
   return (
@@ -13,15 +15,18 @@ const Footer: React.FC = () => {
     >
       <div className="md:px-4 text-sm">
         <div>
-          <p className="mb-2">
-            {t("created-by") + " "}
-            <a href="mailto:anm4@williams.edu">
-              {t("andrew-name")}
-            </a>{" "}
-            {t("and") + " "}
-            <a href="mailto:me4@williams.edu">{t("maxim-name")}</a>{" "}
-            {t("at-williams")}
-          </p>
+          <div className="flex justify-between items-center mb-2">
+            <p>
+              {t("created-by") + " "}
+              <a href="mailto:anm4@williams.edu">
+                {t("andrew-name")}
+              </a>{" "}
+              {t("and") + " "}
+              <a href="mailto:me4@williams.edu">{t("maxim-name")}</a>{" "}
+              {t("at-williams")}
+            </p>
+            <LocaleSwitcher />
+          </div>
           <p className="mb-2">
             {/* {t("by-data-from")}{" "}
             <a

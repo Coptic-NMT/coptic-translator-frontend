@@ -19,6 +19,12 @@
     outline: "none";
 }
 
+.select-center {
+    text-align: center;
+    text-align-last: center;
+    -moz-text-align-last: center; /* For Firefox */
+}
+
 .bg-scriptorium-red-left {
     background-color: #e3d9d879;
     border-color: #9f4739;
