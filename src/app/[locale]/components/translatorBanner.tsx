@@ -23,6 +23,14 @@ const TranslatorContent = () => {
           <div className="mb-4">
             <span className="text-scriptorium-grey">{t("try-other-translators")}</span>
             <div className="flex flex-wrap gap-x-4 gap-y-2 mt-2">
+             <a
+                href="https://polytranslator.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-scriptorium-red hover:underline"
+              >
+                {t("polytranslator")}
+              </a>
               <a
                 href="https://polytranslator.com/egyptian-arabic"
                 target="_blank"
